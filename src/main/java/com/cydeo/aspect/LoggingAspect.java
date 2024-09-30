@@ -20,7 +20,7 @@ public class LoggingAspect {
     @Pointcut("execution(* com.cydeo.controller.ProjectController.*(..)) || execution(* com.cydeo.controller.TaskController.*(..))")
     public void anyProjectOrTaskController() {}
 
-    @Before(("anyProjectOrTaskController"))
+    @Before(("anyProjectOrTaskController()"))
     public void anyProjectOrTaskControllerBeforeAdvice(JoinPoint jointPoint){
         log.info("Before -> Method: {}, User: {}", jointPoint.getSignature().toShortString(), getUsername());
 
